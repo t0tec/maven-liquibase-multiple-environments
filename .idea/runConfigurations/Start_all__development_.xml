@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Start-all (development)" type="Multirun" factoryName="Multirun" separateTabs="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="3">
+    <runConfiguration name="0. Configure environment for development" type="Maven" />
+    <runConfiguration name="1. Start database" type="Application" />
+    <runConfiguration name="2. liquibase-dropAll" type="Maven" />
+    <runConfiguration name="3. liquibase-update" type="Maven" />
+    <method />
+  </configuration>
+</component>
