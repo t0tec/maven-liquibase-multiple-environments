@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.olmec</groupId>
-    <artifactId>test-h2-liquibase</artifactId>
+    <artifactId>maven-liquibase-multiple-environments</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
