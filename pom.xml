@@ -38,12 +38,9 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.4.2</version>
                 <configuration>
-                    <changeLogFile>${basedir}/src/main/resources/liquibase/master.xml</changeLogFile>
-                    <driver>${db.driver}</driver>
-                    <url>${db.url}</url>
-                    <username>${db.login}</username>
-                    <password>${db.password}</password>
-                    <propertyFile>target/classes/liquibase.properties</propertyFile>
+                    <changeLogFile>${basedir}/src/main/resources/liquibase/master.xml
+                    </changeLogFile>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                 </configuration>
             </plugin>
         </plugins>
@@ -58,8 +55,24 @@
                 </filters>
                 <resources>
                     <resource>
-                        <directory>src/main/resources</directory>
+                        <directory>src/main/resources/config</directory>
                         <filtering>true</filtering>
+                        <targetPath>${basedir}/src/main/resources</targetPath>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>staging</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/staging/staging.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/config</directory>
+                        <filtering>true</filtering>
+                        <targetPath>${basedir}/src/main/resources</targetPath>
                     </resource>
                 </resources>
             </build>
@@ -72,32 +85,12 @@
                 </filters>
                 <resources>
                     <resource>
-                        <directory>src/main/resources</directory>
+                        <directory>src/main/resources/config</directory>
                         <filtering>true</filtering>
+                        <targetPath>${basedir}/src/main/resources</targetPath>
                     </resource>
                 </resources>
             </build>
         </profile>
     </profiles>
-    <!--<profiles>-->
-        <!--<profile>-->
-            <!--<id>development</id>-->
-            <!--<properties>-->
-                <!--<db.driver>org.h2.Driver</db.driver>-->
-                <!--<db.url>jdbc:h2:tcp://localhost:9092/~/development/dev_database</db.url>-->
-                <!--<db.login>development</db.login>-->
-                <!--<db.password>development</db.password>-->
-            <!--</properties>-->
-        <!--</profile>-->
-        <!--<profile>-->
-            <!--<id>production</id>-->
-            <!--<properties>-->
-                <!--<db.driver>com.mysql.jdbc.Driver</db.driver>-->
-                <!--<db.url>jdbc:mysql://localhost:3306/production?createDatabaseIfNotExist=true-->
-                <!--</db.url>-->
-                <!--<db.login>root</db.login>-->
-                <!--<db.password>root</db.password>-->
-            <!--</properties>-->
-        <!--</profile>-->
-    <!--</profiles>-->
 </project>

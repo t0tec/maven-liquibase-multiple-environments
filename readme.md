@@ -1,5 +1,7 @@
 1. Run: Start all (development)
 
+    This will generate a liquibase.properties for development in `src/main/resources`
+
 2. Go to H2 Web console: `http://127.0.1.1:8082/`
 
 3. Login with credentials (found in `development.properties`)
